@@ -7,7 +7,7 @@ async function run(){
  
     let response = await fetch('https://api.covid19api.com/world?from=2020-0' + month +'-'+ (day-1) +'T'+time+'Z&to=2020-0'+month+'-'+(day)+'T'+time+'Z');
     response.json().then( (data) => {
-        document.getElementById("world").textContent = "World Data";
+        document.getElementById("world").textContent = "WORLD DATA";
         document.getElementById('total').innerHTML = 'Total Cases : ' + data[0].TotalConfirmed;
         document.getElementById('recovered').innerHTML = 'Recovered : ' + data[0].TotalRecovered;
         document.getElementById('death').innerHTML = 'Deaths : ' + data[0].TotalDeaths;
