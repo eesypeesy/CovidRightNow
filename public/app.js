@@ -4,19 +4,16 @@ async function run(){
     const time = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
     const month = date.getMonth() + 1;
     const day = date.getDate(); 
- 
-    let response = await fetch('https://api.covid19api.com/world?from=2020-0' + month +'-'+ (day-1) +'T'+time+'Z&to=2020-0'+month+'-'+(day)+'T'+time+'Z');
+
+    let response = await fetch('https://disease.sh/v2/all');
     response.json().then( (data) => {
-        document.getElementById("world").textContent = "WORLD DATA";
-        document.getElementById('total').innerHTML = 'Total Cases : ' + data[0].TotalConfirmed;
-        document.getElementById('recovered').innerHTML = 'Recovered : ' + data[0].TotalRecovered;
-        document.getElementById('death').innerHTML = 'Deaths : ' + data[0].TotalDeaths;
+        document.getElementById('fetching').style.display = "none";
+        document.getElementById('load').style.display = "none";
+        document.getElementById('total').innerHTML = 'Total Cases : ' + data.cases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById('recovered').innerHTML = 'Recovered : ' + data.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById('death').innerHTML = 'Deaths : ' + data.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     
-        document.getElementById("t").textContent = "last 24 hours (updates every 10 minutes)";
-        document.getElementById('lasttotal').innerHTML = 'Total Cases : ' + data[0].NewConfirmed;
-        document.getElementById('lastrecovered').innerHTML = 'Recovered : ' + data[0].NewRecovered;
-        document.getElementById('lastdeath').innerHTML = 'Deaths : ' + data[0].NewDeaths;
-        document.getElementById("foot").textContent = "stay home🏡";
+        document.getElementById("foot2").innerHTML = "last updated : <br>" + new Date(data.updated);
     }); 
 }
     

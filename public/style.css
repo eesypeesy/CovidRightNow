@@ -2,14 +2,48 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 300;
+}
+h1{
+    text-align: left;
+    font-size: 20px;
+    animation: showHead 3s ease;
+}
+h2{
+    text-align: left;
+    font-size: 10px;
+    animation: showHead 3s ease;
+    font-weight: 200;
+    margin-top: -15px;
 }
 .centered{
-    margin-top: 50px;
+    margin-top: 100px;
     text-align: center;
     opacity: 1;
     animation: show 3s ease;
+}
+#fetching{
+    font-weight: 400;
+}
+#fetching2{
+    font-size: .5rem;
+}
+#load{
+    margin: auto;
+    width: 15px;
+    height: 15px;
+    border: 1px solid rgb(17, 17, 17);
+    border-radius: 3px;
+    animation: rotate 1s ease infinite;
+}
+@keyframes rotate{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
 }
 @keyframes show {
     from{
@@ -21,8 +55,18 @@ body{
         transform: scale3d(1,1,1);
     }
 }
+@keyframes showHead {
+    from{
+        opacity: 0;
+        transform: scaleZ(.6);
+    }
+    to{
+        opacity: 1;
+        transform: scaleZ(1);
+    }
+}
 #last{
-    margin-top: 100px;
+    margin-top: 10px;
 }
 .total{
     color: rgb(165, 0, 0);
@@ -35,11 +79,12 @@ body{
 }
 #t{
     font-size: 13px;
+    margin-bottom: -10px;
 }
-#foot{
+
+#foot2{
+    font-size: .7rem ;
     position: absolute;
-    bottom: 10%;
-    right: 35%;
-    opacity: 1;
+    bottom: 0;
     animation: show 3s ease;
 }

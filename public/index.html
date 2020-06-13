@@ -9,20 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
 </head>
 <body onload="run()">
+    <h1>CovidRightNow</h1>
+    <h2>A super lightweight Covid19 tracker</h2>
     <div class="centered">
-        <h2 id="world"></h2>
+        <h3 id="fetching">fetching data
+            <div id="fetching2">(usually takes less than 5 seconds)</div>
+        </h3>
+        <div id="load"></div>
         <h3 id="total" class="total"></h3>
         <h3 id="recovered" class="recovered"></h3>
         <h3 id="death" class="deaths"></h3>
 
-        <div id="last">
-            <h4 id="t"></h4>
-            <h4 id="lasttotal" class="total"></h4>
-            <h4 id="lastrecovered" class="recovered"></h4>
-            <h4 id="lastdeath" class="deaths"></h4>
-        </div>
     </div>
-    <div id="foot"></div>
+
+    <div id="foot2"></div>
 
 <script src="./app.js"></script>
 </body>
