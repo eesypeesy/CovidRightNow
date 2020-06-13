@@ -26,6 +26,10 @@ h2{
 #fetching{
     font-weight: 400;
 }
+#head::after{
+    content: "";
+    animation: dot 3s infinite;
+}
 #fetching2{
     font-size: .5rem;
 }
@@ -35,7 +39,7 @@ h2{
     height: 15px;
     border: 1px solid rgb(17, 17, 17);
     border-radius: 3px;
-    animation: rotate 1s ease infinite;
+    animation: rotate 1s ease-in-out infinite;
 }
 @keyframes rotate{
     from{
@@ -63,6 +67,17 @@ h2{
     to{
         opacity: 1;
         transform: scaleZ(1);
+    }
+}
+@keyframes dot{
+    33%{
+        content: ".";
+    }
+    66%{
+        content: "..";
+    }
+    100%{
+        content: "...";
     }
 }
 #last{
