@@ -9,19 +9,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
 </head>
 <body onload="run()">
-    <h1>CovidRightNow</h1>
-    <h2>A super lightweight Covid19 tracker</h2>
+    <h1 id="sitehead">CovidRightNow</h1>
     <div class="centered">
         <h3 id="fetching"><div id="head">fetching data</div>
             <div id="fetching2"></div>
         </h3>
         <div id="load"></div>
-        <h3 id="total" class="total"></h3>
-        <h3 id="recovered" class="recovered"></h3>
-        <h3 id="death" class="deaths"></h3>
+        <div id="worldhead"></div>
+        <div id="worldbracket"></div>
+        <div id="total" class="total"></div>
+        <div id="recovered" class="recovered"></div>
+        <div id="death" class="deaths"></div>
 
+        <!-- India -->
+        
+        <div id="indiahead" style="margin-bottom: 20px;"></div>
+        <div id="indiabracket"></div>
+        <div id="indiatotal" class="total"></div>
+        <div id="indiarecovered" class="recovered"></div>
+        <div id="indiadeath" class="deaths"></div>
     </div>
 
+    <div id="foot1"></div>
     <div id="foot2"></div>
 
 <script src="./app.js"></script>

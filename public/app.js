@@ -17,15 +17,34 @@ async function run(){
         document.getElementById("load").style.display = "none";}
     },20000);
 
-    let response = await fetch('https://disease.sh/v2/all');
-    response.json().then( (data) => {
+    let response1 = await fetch('https://disease.sh/v2/all');
+    response1.json().then( (data) => {
+        
         document.getElementById('fetching').style.display = "none";
         document.getElementById('load').style.display = "none";
-        document.getElementById('total').innerHTML = 'Total Cases : ' + data.cases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        document.getElementById('recovered').innerHTML = 'Recovered : ' + data.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        document.getElementById('death').innerHTML = 'Deaths : ' + data.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById('worldhead').innerHTML = 'World';
+        document.getElementById('worldbracket').innerHTML = 'last 24 hours data given in bracket';
+        document.getElementById('total').innerHTML = 'Confirmed : ' + data.cases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +' ( '+ data.todayCases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' )';
+        document.getElementById('recovered').innerHTML = 'Recovered : ' + data.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' ( '+ data.todayRecovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' )';
+        document.getElementById('death').innerHTML = 'Deaths : ' + data.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' ( '+ data.todayDeaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' )';
     
-        document.getElementById("foot2").innerHTML = "last updated : <br>" + new Date(data.updated);
+        document.getElementById("foot1").innerHTML = "last updated(world) : " + new Date(data.updated);
     }); 
+
+    let response2 = await fetch('https://api.covid19india.org/data.json');
+    response2.json().then((data2) => {
+        let india = data2.statewise[0]; 
+        let intoday = data2.cases_time_series;
+        let inlength = intoday.length - 1;
+        
+        console.log(data2);
+        
+        document.getElementById('indiahead').innerHTML = 'India';
+        document.getElementById('indiatotal').innerHTML = 'Confirmed : ' + india.confirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +' ( '+ intoday[inlength].dailyconfirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' )';
+        document.getElementById('indiarecovered').innerHTML = 'Recovered : ' + india.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' ( '+ intoday[inlength].dailyrecovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' )';
+        document.getElementById('indiadeath').innerHTML = 'Deaths : ' + india.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' ( '+ intoday[inlength].dailydeceased.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' )';
+
+        document.getElementById("foot2").innerHTML = "last updated(india) : " + india.lastupdatedtime;
+    })
 }
     
