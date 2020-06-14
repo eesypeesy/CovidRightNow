@@ -75,13 +75,13 @@ h1{
 }
 
 #foot1{
-    font-size: 10px ;
+    font-size: 7px ;
     position: absolute;
     bottom: 13px;
     animation: show 3s ease;
 }
 #foot2{
-    font-size: 10px ;
+    font-size: 7px ;
     position: absolute;
     bottom: 0;
     animation: show 3s ease;
