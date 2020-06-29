@@ -22,13 +22,17 @@ async function run(){
         
         document.getElementById('fetching').style.display = "none";
         document.getElementById('load').style.display = "none";
+        document.getElementById('stuff').style.display = "block";
         document.getElementById('worldhead').innerHTML = 'World';
-        document.getElementById('worldbracket').innerHTML = 'last 24 hours data given in bracket';
-        document.getElementById('total').innerHTML = 'Confirmed : ' + data.cases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +' ('+ data.todayCases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ')';
-        document.getElementById('recovered').innerHTML = 'Recovered : ' + data.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' ('+ data.todayRecovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ')';
-        document.getElementById('death').innerHTML = 'Deaths : ' + data.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' ('+ data.todayDeaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ')';
+        document.getElementById('total').innerHTML = 'Confirmed : ' + data.cases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById('recovered').innerHTML = 'Recovered : ' + data.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById('death').innerHTML = 'Deaths : ' + data.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     
         document.getElementById("foot1").innerHTML = "last updated(world) : " + new Date(data.updated);
+
+
+        console.log("WorldDataLoaded");
+        
     }); 
 
     let response2 = await fetch('https://api.covid19india.org/data.json');
@@ -37,14 +41,15 @@ async function run(){
         let intoday = data2.cases_time_series;
         let inlength = intoday.length - 1;
         
-        console.log(data2);
-        
         document.getElementById('indiahead').innerHTML = 'India';
         document.getElementById('indiatotal').innerHTML = 'Confirmed : ' + india.confirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +' ('+ intoday[inlength].dailyconfirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ')';
         document.getElementById('indiarecovered').innerHTML = 'Recovered : ' + india.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' ('+ intoday[inlength].dailyrecovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ')';
         document.getElementById('indiadeath').innerHTML = 'Deaths : ' + india.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' ('+ intoday[inlength].dailydeceased.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ')';
 
         document.getElementById("foot2").innerHTML = "last updated(india) : " + india.lastupdatedtime;
+        document.getElementById("sup").style.display = "block";
+
+        console.log("IndiaDataLoaded");
     })
 }
     

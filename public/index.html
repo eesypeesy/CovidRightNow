@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A simple and lightweight covid19 tracker. Updates every 10 minutes.">
-    <title>A LightWeight Covid Tracker</title>
+    <title>A LightWeight Covid Tracker | CovidRightNow</title>
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
 </head>
@@ -15,24 +15,46 @@
             <div id="fetching2"></div>
         </h3>
         <div id="load"></div>
+        <div id="stuff" style="display: none;">
         <div id="worldhead"></div>
-        <div id="worldbracket"></div>
         <div id="total" class="total"></div>
         <div id="recovered" class="recovered"></div>
         <div id="death" class="deaths"></div>
+        <div id="not" style="font-size: .4rem;margin-top: 2px;margin-bottom: -5px;">realtime world data is not accurately available</div> 
 
+        <hr>
         <!-- India -->
         
         <div id="indiahead" style="margin-bottom: 20px;"></div>
-        <div id="indiabracket"></div>
         <div id="indiatotal" class="total"></div>
         <div id="indiarecovered" class="recovered"></div>
         <div id="indiadeath" class="deaths"></div>
     </div>
 
+    <!-- donate -->
+    <div id="sup" style="display: none;text-decoration: none;"><a href="https://www.buymeacoffee.com/eesypeesy" target="_blank"><div id="support"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="imageofacoffee" srcset=""></div>
+    <div id="supportdesc">support my work <br>buy me a coffee</div></a></div>
+
+    <!-- last updated section -->
     <div id="foot1"></div>
     <div id="foot2"></div>
-
+</div>
 <script src="./app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+<script>
+  let firebaseConfig = {
+    apiKey: "AIzaSyC4CYstFVbFINxXkl2nEo-7m0zv0OvIXMQ",
+    authDomain: "covidrightnow.firebaseapp.com",
+    databaseURL: "https://covidrightnow.firebaseio.com",
+    projectId: "covidrightnow",
+    storageBucket: "covidrightnow.appspot.com",
+    messagingSenderId: "774324105461",
+    appId: "1:774324105461:web:bf63356bee5b844d1455bc",
+    measurementId: "G-QDMQFBSS89"
+  };
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 </body>
 </html>

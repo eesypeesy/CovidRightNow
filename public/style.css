@@ -4,7 +4,7 @@ body{
     justify-content: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 300;
-
+    font-size:14px;
     padding-left: 10px;
 }
 h1{
@@ -49,12 +49,18 @@ h1{
     margin-top: 10px;
 }
 #worldhead{
-    margin-top: 120px;
-    text-decoration: underline;
+    margin-top: 100px;
+    margin-bottom: 15px;
 }
 #indiahead{
-    margin-top: 20px;
-    text-decoration: underline;
+    margin-top: 0px;
+}
+#indiahead::after{
+    display: block;
+    content: '(todays cases given in bracket)';
+    font-size: .5rem;
+    margin-top: -5px;
+    text-decoration: none;
 }
 #worldbracket{
     margin-bottom: 20px;
@@ -73,7 +79,23 @@ h1{
     font-size: 13px;
     margin-bottom: -10px;
 }
-
+#support{
+    color: black;
+    height: 30px;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 33px;
+    left: 20px;
+}
+#support img{
+    width: 20px;
+}
+#supportdesc{
+    position: absolute;
+    bottom: 38px;
+    left: 45px;
+    font-size: .6rem;
+}
 #foot1{
     font-size: 7px ;
     position: absolute;
